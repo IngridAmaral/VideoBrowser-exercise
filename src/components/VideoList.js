@@ -3,12 +3,15 @@ import VideoItem from './VideoItem'
 
 class VideoList extends React.Component{
     render(){
-        const { videos } = this.props
+        const { videos, videoClick } = this.props
         const renderedList = videos.map((video) => {
-            return <VideoItem video={video} />
+            return <VideoItem 
+                        key={video.id.videoId} 
+                        videoClick={videoClick} 
+                        video={video} />
         })
         return (
-            <div>{renderedList}</div>
+            <div className='ui divided list'>{renderedList}</div>
         )
     }
 }
